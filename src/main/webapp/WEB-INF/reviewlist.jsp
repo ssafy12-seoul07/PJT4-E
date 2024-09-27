@@ -40,7 +40,7 @@
 				<td>${review.userId}</td>
 				<td>${review.content}</td>
 				<td><a href="main?action=toupdateform&review=${review}">수정</a></td>		
-				<td><a href="main?action=delete&id=${review.id}&videoId=${id}">삭제</a></td>		
+				<td><a href="main?action=delete&id=${review.id}&videoId=${review.videoId}">삭제</a></td>		
 			</tr>
 		</c:forEach>
 	
