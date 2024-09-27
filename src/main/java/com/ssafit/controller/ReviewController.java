@@ -1,5 +1,5 @@
 package com.ssafit.controller;
 
-public class Controller {
+public class ReviewController {
 
 }
