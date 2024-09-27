@@ -78,7 +78,8 @@ public class MainController extends HttpServlet {
                 String userId = req.getParameter("userId");
                 Review review = new Review(id, videoId, content, userId);
                 reviews.updateReview(review);
-                req.setAttribute("id", videoId);
+                req.setAttribute("reviewlist", reviews.getReviewsByVideoId(videoId));
+                req.setAttribute("video", videos.findById(videoId));
                 RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/reviewlist.jsp");
                 dispatcher.forward(req, res);
 				break;
