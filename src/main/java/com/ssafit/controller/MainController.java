@@ -84,9 +84,12 @@ public class MainController extends HttpServlet {
                 dispatcher.forward(req, res);
 				break;
 			}
-			
 		}
-		
-		
+	}
+	
+	@Override
+	protected void doPost(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
+		RequestDispatcher dispatcher = req.getRequestDispatcher("index.jsp");
+		dispatcher.forward(req, res);
 	}
 }
