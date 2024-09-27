@@ -39,13 +39,13 @@
 			<tr>
 				<td>${review.userId}</td>
 				<td>${review.content}</td>
-				<td><a href="updateform.jsp?review=${review}">수정</a></td>		
-				<td><a href="main?action=delete&id=${review.id}">삭제</a></td>		
+				<td><a href="main?action=toupdateform&review=${review}">수정</a></td>		
+				<td><a href="main?action=delete&id=${review.id}&videoId=${id}">삭제</a></td>		
 			</tr>
 		</c:forEach>
 	
 	</table>
 	
-	<a href="videolist.jsp">비디오 목록으로 돌아가기</a>
+	<a href="main?action=videolist">비디오 목록으로 돌아가기</a>
 </body>
 </html>

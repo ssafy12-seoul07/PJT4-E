@@ -12,8 +12,5 @@
 	<a href="main?action=videolist">등록된 비디오 목록</a>
 	
 	
-	<a href="test.jsp">테스트</a>
-	
-	
 </body>
 </html>
