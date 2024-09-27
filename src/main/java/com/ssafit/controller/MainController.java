@@ -55,7 +55,6 @@ public class MainController extends HttpServlet {
 			case "delete": {
 				int id = Integer.parseInt(req.getParameter("id"));
 				int videoId = Integer.parseInt(req.getParameter("videoId"));
-				System.out.println(id);
                 reviews.deleteReview(id);
                 req.setAttribute("reviewlist", reviews.getReviewsByVideoId(videoId));
                 req.setAttribute("video", videos.findById(videoId));
@@ -63,6 +62,26 @@ public class MainController extends HttpServlet {
                 dispatcher.forward(req, res);
 				break;
 			}
+			case "toupdateform": {
+				Review review = (Review) req.getAttribute("review");
+                req.setAttribute("review", review);
+                RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/updateform.jsp");
+                dispatcher.forward(req, res);
+				break;
+			}
+			case "update": {
+				int id = Integer.parseInt(req.getParameter("id"));
+				int videoId = Integer.parseInt(req.getParameter("videoId"));
+				String content = req.getParameter("content");
+                String userId = req.getParameter("userId");
+                Review review = new Review(id, videoId, content, userId);
+                reviews.updateReview(review);
+                req.setAttribute("id", videoId);
+                RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/reviewlist.jsp");
+                dispatcher.forward(req, res);
+				break;
+			}
+			
 		}
 		
 		
