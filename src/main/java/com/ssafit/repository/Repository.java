@@ -8,8 +8,8 @@ import java.util.Optional;
 
 public class Repository {
     private static Repository instance;
-    private List<Review> reviews = new ArrayList<>();
-    private List<Video> videos = new ArrayList<>();;
+    private static List<Review> reviews = new ArrayList<>();
+    private static List<Video> videos = new ArrayList<>();;
     
     public void addVideo(Video video) {
         videos.add(video);
@@ -41,6 +41,8 @@ public class Repository {
 
     public static synchronized Repository getInstance() {
         if (instance == null) {
+        	Video video1 = new Video(1, "박서하의 유쾌한 반란", "피승빈", "드라마", 3);
+            videos.add(video1);
             instance = new Repository();
         }
         return instance;

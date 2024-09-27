@@ -19,7 +19,6 @@ import java.io.IOException;
 @WebServlet("/main")
 public class MainController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-    
 	@Override
 	protected void service(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
 		String action = req.getParameter("action");
@@ -54,7 +53,12 @@ public class MainController extends HttpServlet {
 				break;
 			}
 			case "delete": {
-				
+				int id = Integer.parseInt(req.getParameter("id"));
+                reviews.deleteReview(id);
+                req.setAttribute("reviewlist", reviews.getReviewsByVideoId(id));
+                req.setAttribute("video", videos.findById(id));
+                RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/reviewlist.jsp");
+                dispatcher.forward(req, res);
 				break;
 			}
 		}
