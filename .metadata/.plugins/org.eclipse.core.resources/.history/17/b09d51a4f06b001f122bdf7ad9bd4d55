@@ -1,0 +1,61 @@
+package asdf;
+
+import java.util.*;
+
+public class Solution {
+	static int N,K,max, ans;
+	
+	
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		int T = sc.nextInt();
+		for (int t = 0; t < T; t++) {
+			N=sc.nextInt();
+			K=sc.nextInt();
+			max=0;
+			ans=0;
+			
+			int[][] grid = new int[N][N];
+			for (int i = 0; i < N; i++) {
+				for (int j = 0; j < N; j++) {
+					grid[i][j]=sc.nextInt();
+					
+					max=Math.max(max, grid[i][j]);
+				}
+			}
+			
+			int[][] copygrid = grid.clone();
+			for (int i = 0; i < N; i++) {
+				for (int j = 0; j < N; j++) {
+					if(max==grid[i][j])
+						asdf(grid, i, j);
+					
+				}
+			}	
+			
+			
+		}//tcfor
+		sc.close();
+	}//main
+	
+	public static int asdf(int[][] grid, int x, int y) {
+		for(int i=0;i<4;i++) {
+			int[] dx= {1,-1,0,0};
+			int[] dy= {0,0,1,-1};
+			if(grid[x][y]>grid[x+dx[i]][y+dy[i]]) {
+				ans++;
+				asdf(grid,x+dx[i],y+dy[i]);
+			}
+			else if(K>=grid[x+dx[i]][y+dy[i]]-grid[x][y]&&grid[x][y]>=grid[x+dx[i]][y+dy[i]]) {
+				grid[x+dx[i]][y+dy[i]]=grid[x][y]-1;
+				ans++;
+				asdf(grid,x+dx[i],y+dy[i]);
+			}
+			
+		}
+		
+		return ans;
+	}
+	
+	
+}//sol

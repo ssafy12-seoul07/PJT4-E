@@ -1,0 +1,22 @@
+package asdf;
+
+import java.util.*;
+
+public class Solution {
+	static N,K;
+	
+	
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		int T = sc.nextInt();
+		for (int t = 0; t < T; t++) {
+			N=sc.nextInt();
+			K=sc.nextInt();
+			
+		}
+		
+		
+		
+		sc.close();
+	}//main
+}//sol
