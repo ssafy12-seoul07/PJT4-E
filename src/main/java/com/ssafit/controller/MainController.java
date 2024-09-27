@@ -19,6 +19,7 @@ import java.io.IOException;
 @WebServlet("/main")
 public class MainController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+	static int count = 1;
 	@Override
 	protected void service(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
 		String action = req.getParameter("action");
@@ -44,7 +45,7 @@ public class MainController extends HttpServlet {
 				int videoId = Integer.parseInt(req.getParameter("videoId"));
 				String userId = req.getParameter("userId");
 				String content = req.getParameter("content");
-				Review review = new Review(0, videoId, userId, content);
+				Review review = new Review(count++, videoId, userId, content);
 				reviews.addReview(review);
 				req.setAttribute("reviewlist", reviews.getReviewsByVideoId(videoId));
 				req.setAttribute("video", videos.findById(videoId));

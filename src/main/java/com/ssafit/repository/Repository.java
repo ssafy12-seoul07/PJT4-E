@@ -33,7 +33,6 @@ public class Repository {
     public boolean removeVideo(int id) {
         return videos.removeIf(video -> video.getId() == id);
     }
-    private int ridCounter = 1;
     
     private Repository() {
         // Private constructor to prevent instantiation
@@ -53,7 +52,6 @@ public class Repository {
     }
 
     public void save(Review review) {
-        review.setId(ridCounter++);
         reviews.add(review);
     }
 

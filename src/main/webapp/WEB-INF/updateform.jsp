@@ -14,16 +14,14 @@
 		
 		<input type="hidden" name="action" value="update">
 		
-		<input type="hidden" neme="id" value ="${review.id}">
+		<input type="hidden" name="id" value="${review.id}">
 		
-		<label for="videoId">videoId</label>
-		<input type="text" name="videoId" value="${review.videoId}"> <br>
+		<input type="hidden" name="videoId" value="${review.videoId}">
 		
 		<label for="content">content</label>
 		<input type="text" name="content" value="${review.content}"> <br>
 		
-		<label for="userId">videoId</label>
-		<input type="text" name="userId" value="${review.userId}"> <br>
+		<input type="hidden" name="userId" value="${review.userId}">
 		
 		<input type="submit" value="수정">
 	</form>
