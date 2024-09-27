@@ -89,11 +89,11 @@
     </style>
 </head>
 <body>
-    <h2>${title} 리뷰 목록</h2>
-    
+	<h2>${video.title} 리뷰 목록</h2>
+
     <form action="main" method="post">
         <fieldset>
-            <legend>리뷰 등록</legend>
+            <legend>새로운 리뷰 등록</legend>
             <input type="hidden" name="action" value="new">
             <input type="hidden" name="videoId" value="${video.id}">
             
@@ -106,6 +106,8 @@
             <input type="submit" value="등록">
         </fieldset>
     </form>
+    
+    <h3>리뷰 목록</h2>
     
     <table>
         <tr>

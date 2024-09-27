@@ -52,6 +52,14 @@
         a:hover {
             background-color: #45a049;
         }
+        
+        iframe {
+            width: 100%;
+            height: 200px; /* 높이는 필요에 따라 조정 */
+            border: none;
+        }
+        
+        
     </style>
 </head>
 <body>
@@ -59,15 +67,17 @@
 
     <table>
         <tr>
-            <th>비디오 ID</th>
             <th>제목</th>
-            <th>리뷰 및 상세보기</th>
+            <th>영상 미리보기</th>
+            <th>리뷰 보기</th>
         </tr>
         
         <c:forEach items="${list}" var="video">
             <tr>
-                <td>${video.id}</td>
                 <td>${video.title}</td>
+                <td>
+                    <iframe src="https://www.youtube.com/embed/${video.id}" allowfullscreen></iframe>
+                </td>
                 <td><a href="main?action=reviewlist&id=${video.id}">상세보기</a></td>        
             </tr>
         </c:forEach>
