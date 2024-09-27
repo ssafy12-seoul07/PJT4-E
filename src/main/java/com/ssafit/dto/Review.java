@@ -5,7 +5,10 @@ public class Review {
     private int videoId;
     private String content;
     private String userId;
-
+    
+	public Review() {
+		// TODO Auto-generated constructor stub
+	}
     // Getters and Setters
     public int getId() { return id; }
     public void setId(int id) { this.id = id; }
