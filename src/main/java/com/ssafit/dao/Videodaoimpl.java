@@ -2,6 +2,7 @@ package com.ssafit.dao;
 
 import java.util.List;
 
+import com.ssafit.dto.Review;
 import com.ssafit.dto.Video;
 import com.ssafit.repository.*;
 
@@ -15,9 +16,19 @@ public class Videodaoimpl implements Videodao {
     public List<Video> getAllVideos() {
         return videos.getAllVideos();
     }
+    
+    public Video findById(int id) {
+    	return videos.getVideoById(id);
+    }
 
-    public boolean updateVideo(int id, Video updatedVideo) {
-        return videos.updateVideo(id, updatedVideo);
+    public void updateVideo(int id, Video updatedVideo) {
+    	Video existingVideo = videos.getVideoById(id);
+        if (existingVideo != null) {
+        	existingVideo.setTitle(updatedVideo.getTitle());
+            existingVideo.setDescription(updatedVideo.getDescription());
+            existingVideo.setCategory(updatedVideo.getCategory());
+            existingVideo.setViews(updatedVideo.getViews());
+        }
     }
 
     public boolean removeVideo(int id) {
