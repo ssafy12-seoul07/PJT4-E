@@ -12,17 +12,18 @@
 	
 	<table>
 		<tr>
-			<th>ID</th>
+			<th>비디오 ID</th>
 			<th>제목</th>
 			<th>리뷰 및 상세보기</th>
 		</tr>
 		
-		<tr>
-			<td>d</td>			
-			<td>s</td>			
-			<td>a</td>			
-			<td>f</td>			
-		</tr>
+		<c:forEach items="${list}" var="video">
+			<tr>
+				<td>${video.id}</td>
+				<td>${video.title}</td>
+				<td><a href="main?action=reviewlist&id=${video.id}">상세보기</a></td>		
+			</tr>
+		</c:forEach>
 	
 	</table>
 </body>
