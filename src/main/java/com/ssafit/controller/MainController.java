@@ -1,4 +1,4 @@
-package com.ssafit.service;
+package com.ssafit.controller;
 
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
@@ -10,20 +10,28 @@ import java.io.IOException;
 /**
  * Servlet implementation class Service
  */
-public class Service extends HttpServlet {
-	private static final long serialVersionUID = 1L;
-       
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public Service() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
 
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
+@WebServlet("/main")
+public class MainController extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+    
+	@Override
+	protected void service(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
+		String action = req.getParameter("action");
+		
+		switch (action) {
+		case "movie": {
+			
+			break;
+		}
+		case "reset": {
+			
+			break;
+		}
+		
+		
+	}
+
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		response.getWriter().append("Served at: ").append(request.getContextPath());
