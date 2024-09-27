@@ -5,10 +5,10 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>비디오 목록</title>
+<title>${movie.title} 리뷰 목록</title>
 </head>
 <body>
-	<h2>비디오 목록</h2>
+	<h2>${movie.title} 리뷰 목록</h2>
 	
 	<table>
 		<tr>
