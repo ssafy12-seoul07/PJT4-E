@@ -1,5 +1,10 @@
 package com.ssafit.controller;
 
+import com.ssafit.dto.*;
+import com.ssafit.dao.Reviewdaoimpl;
+import com.ssafit.dao.Videodaoimpl;
+
+import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -18,13 +23,37 @@ public class MainController extends HttpServlet {
 	@Override
 	protected void service(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
 		String action = req.getParameter("action");
+		Videodaoimpl videos = new Videodaoimpl();
+		Reviewdaoimpl reviews = new Reviewdaoimpl();
 		
 		switch (action) {
 			case "videolist": {
-				
+				req.setAttribute("list", videos.getAllVideos());
+				RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/videolist.jsp");
+				dispatcher.forward(req, res);
 				break;
 			}
 			case "reviewlist": {
+				int id = Integer.parseInt(req.getParameter("id"));
+				req.setAttribute("reviewlist", reviews.getReviewsByVideoId(id));
+				req.setAttribute("video", videos.findById(id));
+				RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/reviewlist.jsp");
+				dispatcher.forward(req, res);
+				break;
+			}
+			case "new": {
+				int videoId = Integer.parseInt(req.getParameter("videoId"));
+				String userId = req.getParameter("userId");
+				String content = req.getParameter("content");
+				Review review = new Review(0, videoId, userId, content);
+				reviews.addReview(review);
+				req.setAttribute("reviewlist", reviews.getReviewsByVideoId(videoId));
+				req.setAttribute("video", videos.findById(videoId));
+				RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/reviewlist.jsp");
+				dispatcher.forward(req, res);
+				break;
+			}
+			case "delete": {
 				
 				break;
 			}
@@ -32,18 +61,4 @@ public class MainController extends HttpServlet {
 		
 		
 	}
-
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
-	}
-
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
-	}
-
 }

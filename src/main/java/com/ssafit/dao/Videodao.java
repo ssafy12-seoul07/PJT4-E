@@ -10,7 +10,9 @@ public interface Videodao {
 
     public List<Video> getAllVideos();
 
-    public boolean updateVideo(int id, Video updatedVideo);
+    public Video findById(int id);
+    
+    public void updateVideo(int id, Video updatedVideo);
 
     public boolean removeVideo(int id);
 }
