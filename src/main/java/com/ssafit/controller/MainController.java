@@ -54,9 +54,11 @@ public class MainController extends HttpServlet {
 			}
 			case "delete": {
 				int id = Integer.parseInt(req.getParameter("id"));
+				int videoId = Integer.parseInt(req.getParameter("videoId"));
+				System.out.println(id);
                 reviews.deleteReview(id);
-                req.setAttribute("reviewlist", reviews.getReviewsByVideoId(id));
-                req.setAttribute("video", videos.findById(id));
+                req.setAttribute("reviewlist", reviews.getReviewsByVideoId(videoId));
+                req.setAttribute("video", videos.findById(videoId));
                 RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/reviewlist.jsp");
                 dispatcher.forward(req, res);
 				break;
