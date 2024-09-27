@@ -21,17 +21,17 @@ public class Repository {
     }
 
     // ID로 비디오 찾기
-    public Video getVideoById(int id) {
+    public Video getVideoById(String id) {
         return videos.stream()
-                     .filter(video -> video.getId() == id)
+                     .filter(video -> video.getId().equals(id))
                      .findFirst()
                      .orElse(null);
     }
 
 
     // 비디오 삭제
-    public boolean removeVideo(int id) {
-        return videos.removeIf(video -> video.getId() == id);
+    public boolean removeVideo(String id) {
+        return videos.removeIf(video -> video.getId().equals(id));
     }
     
     private Repository() {
@@ -40,8 +40,12 @@ public class Repository {
 
     public static synchronized Repository getInstance() {
         if (instance == null) {
-        	Video video1 = new Video(1, "박서하의 유쾌한 반란", "피승빈", "드라마", 3);
+        	Video video1 = new Video("u5OgcZdNbMo", "저는 하체 식주의자 입니다", "GYM종국", "하체", 3);
+        	Video video2 = new Video("MTU4iCDntjs?si=fpAPThN64woRE2Uj", "4 Minute OFFICE STRETCHING(full body)", "Allblanc TV", "전신", 3);
+        	Video video3 = new Video("IG50fc8n56E?si=1x1PSzD_BwgQcsrs", "죄와 벌", "피승빈", "드라마", 3);
             videos.add(video1);
+            videos.add(video2);
+            videos.add(video3);
             instance = new Repository();
         }
         return instance;

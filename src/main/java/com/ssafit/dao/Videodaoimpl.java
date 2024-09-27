@@ -17,11 +17,11 @@ public class Videodaoimpl implements Videodao {
         return videos.getAllVideos();
     }
     
-    public Video findById(int id) {
+    public Video findById(String id) {
     	return videos.getVideoById(id);
     }
 
-    public void updateVideo(int id, Video updatedVideo) {
+    public void updateVideo(String id, Video updatedVideo) {
     	Video existingVideo = videos.getVideoById(id);
         if (existingVideo != null) {
         	existingVideo.setTitle(updatedVideo.getTitle());
@@ -31,7 +31,7 @@ public class Videodaoimpl implements Videodao {
         }
     }
 
-    public boolean removeVideo(int id) {
+    public boolean removeVideo(String id) {
         return videos.removeVideo(id);
     }
 }

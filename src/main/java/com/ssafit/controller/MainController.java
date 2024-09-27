@@ -34,7 +34,7 @@ public class MainController extends HttpServlet {
 				break;
 			}
 			case "reviewlist": {
-				int id = Integer.parseInt(req.getParameter("id"));
+				String id = req.getParameter("id");
 				req.setAttribute("reviewlist", reviews.getReviewsByVideoId(id));
 				req.setAttribute("video", videos.findById(id));
 				RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/reviewlist.jsp");
@@ -42,7 +42,7 @@ public class MainController extends HttpServlet {
 				break;
 			}
 			case "new": {
-				int videoId = Integer.parseInt(req.getParameter("videoId"));
+				String videoId = req.getParameter("videoId");
 				String userId = req.getParameter("userId");
 				String content = req.getParameter("content");
 				Review review = new Review(count++, videoId, userId, content);
@@ -55,7 +55,7 @@ public class MainController extends HttpServlet {
 			}
 			case "delete": {
 				int id = Integer.parseInt(req.getParameter("id"));
-				int videoId = Integer.parseInt(req.getParameter("videoId"));
+				String videoId = req.getParameter("videoId");
                 reviews.deleteReview(id);
                 req.setAttribute("reviewlist", reviews.getReviewsByVideoId(videoId));
                 req.setAttribute("video", videos.findById(videoId));
@@ -73,7 +73,7 @@ public class MainController extends HttpServlet {
 			}
 			case "update": {
 				int id = Integer.parseInt(req.getParameter("id"));
-				int videoId = Integer.parseInt(req.getParameter("videoId"));
+				String videoId = req.getParameter("videoId");
 				String content = req.getParameter("content");
                 String userId = req.getParameter("userId");
                 Review review = new Review(id, videoId, content, userId);

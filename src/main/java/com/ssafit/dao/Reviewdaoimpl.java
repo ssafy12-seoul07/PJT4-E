@@ -9,10 +9,10 @@ import java.util.List;
 public class Reviewdaoimpl implements Reviewdao {
     private Repository reviews = Repository.getInstance();
 
-    public List<Review> getReviewsByVideoId(int videoId) {
+    public List<Review> getReviewsByVideoId(String videoId) {
         List<Review> videoReviews = new ArrayList<>();
         for (Review review : reviews.findAllR()) {
-            if (review.getVideoId() == videoId) {
+            if (review.getVideoId().equals(videoId)) {
                 videoReviews.add(review);
             }
         }

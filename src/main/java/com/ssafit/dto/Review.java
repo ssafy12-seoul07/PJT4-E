@@ -2,12 +2,12 @@ package com.ssafit.dto;
 
 public class Review {
     private int id;
-    private int videoId;
+    private String videoId;
     private String content;
     private String userId;
     
     
-	public Review(int id, int videoId, String content, String userId) {
+	public Review(int id, String videoId, String content, String userId) {
 		super();
 		this.id = id;
 		this.videoId = videoId;
@@ -22,8 +22,8 @@ public class Review {
     public int getId() { return id; }
     public void setId(int id) { this.id = id; }
 
-    public int getVideoId() { return videoId; }
-    public void setVideoId(int videoId) { this.videoId = videoId; }
+    public String getVideoId() { return videoId; }
+    public void setVideoId(String videoId) { this.videoId = videoId; }
 
     public String getContent() { return content; }
     public void setContent(String content) { this.content = content; }

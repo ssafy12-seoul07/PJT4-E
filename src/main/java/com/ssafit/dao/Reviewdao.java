@@ -6,7 +6,7 @@ import java.util.List;
 
 public interface Reviewdao {
 
-    public List<Review> getReviewsByVideoId(int videoId);
+    public List<Review> getReviewsByVideoId(String videoId);
 
     public void addReview(Review review);
 
