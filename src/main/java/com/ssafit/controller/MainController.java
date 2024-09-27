@@ -20,13 +20,14 @@ public class MainController extends HttpServlet {
 		String action = req.getParameter("action");
 		
 		switch (action) {
-		case "movie": {
-			
-			break;
-		}
-		case "reset": {
-			
-			break;
+			case "videolist": {
+				
+				break;
+			}
+			case "reviewlist": {
+				
+				break;
+			}
 		}
 		
 		

@@ -1,5 +1,5 @@
 package com.ssafit.dao;
 
-public class Moviedao {
+public class Videodao {
 
 }

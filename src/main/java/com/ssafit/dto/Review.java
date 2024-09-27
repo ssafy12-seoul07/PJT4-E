@@ -1,0 +1,21 @@
+package com.ssafit.dto;
+
+public class Review {
+    private int id;
+    private int videoId;
+    private String content;
+    private String userId;
+
+    // Getters and Setters
+    public int getId() { return id; }
+    public void setId(int id) { this.id = id; }
+
+    public int getVideoId() { return videoId; }
+    public void setVideoId(int videoId) { this.videoId = videoId; }
+
+    public String getContent() { return content; }
+    public void setContent(String content) { this.content = content; }
+
+    public String getUserId() { return userId; }
+    public void setUserId(String userId) { this.userId = userId; }
+}
