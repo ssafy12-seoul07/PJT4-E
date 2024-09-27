@@ -9,20 +9,21 @@
     <title>비디오 목록</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f9;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f9f9f9;
             color: #333;
             text-align: center;
             padding: 20px;
         }
         h2 {
-            color: #4CAF50;
+            color: #28a745;
             font-size: 2.5em;
             margin-bottom: 20px;
         }
         table {
             margin: 0 auto;
             width: 80%;
+            max-width: 1100px;
             border-collapse: collapse;
             background-color: #fff;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -30,13 +31,17 @@
             overflow: hidden;
         }
         th, td {
-            padding: 12px;
+            padding: 15px;
             text-align: center;
             border-bottom: 1px solid #ddd;
         }
         th {
-            background-color: #4CAF50;
+            background-color: #28a745;
             color: white;
+            font-size: 1.2em;
+        }
+        td {
+            font-size: 1.1em;
         }
         tr:nth-child(even) {
             background-color: #f2f2f2;
@@ -44,22 +49,41 @@
         a {
             text-decoration: none;
             color: #fff;
-            background-color: #4CAF50;
-            padding: 8px 16px;
+            background-color: #28a745;
+            padding: 10px 20px;
             border-radius: 5px;
             transition: background-color 0.3s ease;
         }
         a:hover {
-            background-color: #45a049;
+            background-color: #218838;
         }
-        
         iframe {
             width: 100%;
-            height: 200px; /* 높이는 필요에 따라 조정 */
+            aspect-ratio: 4/3;
+            max-height: 300px;
+            max-width: 400px;
             border: none;
+            border-radius: 5px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
         }
-        
-        
+        td iframe {
+            margin-bottom: 10px;
+        }
+        .video-title {
+            font-size: 1em;
+            font-weight: bold;
+            color: #333;
+            margin-top: 10px;
+        }
+        .video-title:hover {
+            color: #28a745;
+        }
+        #category {
+        	width: 4rem;
+        }
+        #detail {
+        	width: 8rem;
+        }
     </style>
 </head>
 <body>
@@ -67,18 +91,19 @@
 
     <table>
         <tr>
-            <th>제목</th>
+        	<th>분류</th>
             <th>영상 미리보기</th>
             <th>리뷰 보기</th>
         </tr>
         
         <c:forEach items="${list}" var="video">
             <tr>
-                <td>${video.title}</td>
+            	<td id="category">${video.category}</td>
                 <td>
-                    <iframe src="https://www.youtube.com/embed/${video.id}" allowfullscreen></iframe>
+                    <iframe src="https://www.youtube.com/embed/${video.id}" allowfullscreen></iframe> <br>
+                    <span class="video-title">${video.title}</span>
                 </td>
-                <td><a href="main?action=reviewlist&id=${video.id}">상세보기</a></td>        
+                <td id="detail"><a href="main?action=reviewlist&id=${video.id}">상세보기</a></td>        
             </tr>
         </c:forEach>
     

@@ -43,7 +43,7 @@
 </head>
 <body>
     <div class="container">
-        <h2>Welcome to SSAFY Board</h2>
+        <h2>Welcome to Review Board</h2>
         <p>등록된 비디오 목록을 확인하세요.</p>
         <a href="main?action=videolist">등록된 비디오 목록</a>
     </div>
