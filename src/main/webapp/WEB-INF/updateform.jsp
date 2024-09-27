@@ -14,8 +14,18 @@
 		
 		<input type="hidden" name="action" value="update">
 		
-		<label>videoId</label>
-		<input type="text" 
+		<input type="hidden" neme="id" value ="${review.id}">
+		
+		<label for="videoId">videoId</label>
+		<input type="text" name="videoId" value="${review.videoId}"> <br>
+		
+		<label for="content">content</label>
+		<input type="text" name="content" value="${review.content}"> <br>
+		
+		<label for="userId">videoId</label>
+		<input type="text" name="userId" value="${review.userId}"> <br>
+		
+		<input type="submit" value="수정">
 	</form>
 		
 
