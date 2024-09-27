@@ -64,7 +64,8 @@ public class MainController extends HttpServlet {
 				break;
 			}
 			case "toupdateform": {
-				Review review = (Review) req.getAttribute("review");
+				int id =  Integer.parseInt(req.getParameter("id"));
+				Review review = reviews.findReviewById(id);
                 req.setAttribute("review", review);
                 RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/updateform.jsp");
                 dispatcher.forward(req, res);

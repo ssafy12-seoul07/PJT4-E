@@ -23,6 +23,10 @@ public class Reviewdaoimpl implements Reviewdao {
     	reviews.save(review);
     }
 
+    public Review findReviewById(int id) {
+    	return reviews.findById(id);
+    }
+    
     public void updateReview(Review review) {
         Review existingReview = reviews.findById(review.getId());
         if (existingReview != null) {

@@ -10,6 +10,8 @@ public interface Reviewdao {
 
     public void addReview(Review review);
 
+    public Review findReviewById(int id);
+    
     public void updateReview(Review review);
 
     public void deleteReview(int id);
